@@ -1,0 +1,281 @@
+javascript is case sensitive
+for US  dollars calculate numbers in cents and later on convert to dollar since 1 dollar equal to 100 cents due to
+inaccuracy of floats
+// Rounding off numbers
+// Math.round(insert the number)              ------syntax--------
+//Assignment on maths in javascript 
+(1899 + 799 + 2095) / 100
+47.93
+(1899 + 799 + 2095 + 499) / 100 
+52.92
+Math.round((1899 + 799 + 2095 + 499) * 0.1) / 100
+5.29
+(1899 + 799 + 2095 + 499) / 100 + Math.round((1899 + 799 + 2095 + 499) * 0.1) / 100 
+58.21
+
+// to floor or ceil a number
+Math.floor(2.8)
+2
+Math.ceil(2.2)
+3
+
+Challenge Exercises
+We'll use JavaScript to convert temperatures from Celsius (°C) to Fahrenheit (°F). The formula is:
+Fahrenheit = (Celsius* 9/5) + 32
+Celsius = (Fahrenheit - 32) * 5/9
+21. The temperature is 25°C. Calculate the temperature in Fahrenheit. (77)
+(25*9/5) + 32
+77
+2m. The temperature is 86°F. Calculate the temperature in Celsius. (30)
+(86-32)*5/9
+30
+2n. The temperature is -5°C. Calculate the temperature in Fahrenheit. (23)
+(-5*9/5) + 32
+23
+
+//Adding of strings  (Concatination)
+
+'swaraj' + 'is' + 'a' + 'good' + 'boy'
+o/p 'swarajisagoodboy'
+
+// Type of data in javascript
+
+typeof 2        -----syntax--------
+o/p 'number'
+
+typeof 'swaraj'
+o/p 'string'
+
+// *imp* // when a number is concatinated with a string js coverts number to a string and treats as conactination of two strings
+this is called as Type coercion (automatic type conversion)
+
+// *imp *
+
+'$' + 20.95 + 7.99
+ will give the output as $20.957.99
+ because js calulates from left to right and since first element is an string and due to coercion in js it converts the next element(20.95) which is a number to
+ a string so it concatinates it as string which is also true for the next element i.e 7.99 so they are concatinated as strings
+
+ *solution
+'$' + (2095 + 799) / 100         --add brackets for calculations
+ 
+ // string also follow order precedence just like operators in javascript
+
+ strings + numbers
+
+ 'Items ('+(1+1)+'): $' + (2095 + 799) / 100  
+
+ In javascript there are three ways to create a string
+ 1) using single quotes '  '
+ 2) using double quotes "  "
+ in javascript use single quote by default to create strings
+ where is double quote used ?
+ in place where single quote is already present use double quote foe example
+ 'I'm learning javascript'
+ will throw an error since first 'I' ends the string here itself so to solve this use double quotes
+ "I'm learning javascript"
+ another way to solve this is to use escape character
+ escape character is a backslash \' 
+ it doesnt start or end the string
+ so the above string can be written as
+'I\'m learning javascript'
+we can also use for double quotes 
+"I'm learning \"javascript\""
+another escape character is \n which is used for new line
+3) using backticks `  `
+`hello swaraj`
+strings created using backticks are called template literals or template strings
+they have some special features
+1) interpolation - lets you insert a value directly into a string
+FOR EXAMPLE value of 1+1 can be inserted directly into a string using interpolation and also the total
+`items (${1+1}): $${(2095 + 799)/100}`
+so we can see interpolation is cleaner and easier to read than concatenation
+2) multiline strings
+`some
+text`
+'some\ntext'
+it creates a new line character
+use template literals when you want to use interpolation or multiline strings else use single quotes
+Assignment
+'My name is swaraj'
+'My name is' + ' Swaraj'
+'My name is Swaraj'
+'Total cost: $ '+(5+3)
+'Total cost: $ 8'
+`Total cost: $${5+3}`
+'Total cost: $8'
+alert(`Total cost: $${5+3}`);
+'Total cost : $'+(599 + 295) / 100;
+'Total cost : $8.94'
+`Total cost: $${(599 + 295)/100}`
+'Total cost: $8.94'
+alert(`Total cost: $${(599 + 295)/100}`);
+alert(`Total cost: $${(599 + 295) / 100}
+Thank you, come again!`);
+
+Challenge Exercises
+`items (${2+2}): $${(2095*2 + 799*2)/100}`
+'items (4): $57.88'
+`Shipping & handling: $${(499 + 499)/ 100}`
+'Shipping & handling: $9.98'
+`Total before tax: $${(2095*2 + 799*2 + 499 + 499)/100}`
+'Total before tax: $67.86'
+`Estimated tax(10%): $${Math.round((2095*2 + 799*2 + 499 + 499)*0.1)/100}`
+'Estimated tax(10%): $6.79'
+
+
+/*imp*/ code in the script tag always runs first then the onclick event runs.
+
+
+$ and _ are valid variable names in javascript no other special characters are allowed
+
+you cant use reserved keywords as variable names like var, let, const, alert, prompt, etc
+
+you cant start a variable name with a number but you can use numbers in between or at the end of a variable name
+
+//imp 
+javascripts has semicolon insertion which means if you dont put a semicolon at the end of a statement js will automatically put it for you
+
+camelCase is the standard way of naming variables in javascript
+
+PascaleCase is used for naming classes in javascript
+we use PascaleCase for naming classes in javascript because it is a convention to use PascaleCase for naming classes in javascript
+
+Kebab-case is used for naming ids in html and css cart-quantity
+
+snake_case is used for naming variables in python not in javascript
+
+Three ways to create variables in javascript
+1) var
+2) let
+3) const
+
+// imp 
+value of const cannot be changed once it is declared
+unlike var and let which can be changed
+
+// const make the code more readable and maintainable and safe
+
+only use let when you want to change the value of a variable
+
+so mostly use const for variables that are not going to chnage and let for the ones which are going to change.
+
+var is an old way of creating variables in javascript
+var can be changed later in the code
+var has issues with scope it is old way of creating variables in javascript so dont use it
+
+we can use typeof with variables to check the type of variable
+let variable1 = 5;
+console.log(typeof variable1);
+output - number
+
+we can do it for string as well
+
+Math.random() gives a random number between 0 and 1
+
+var doesnt follow scope rules
+let and const follow scope rules
+
+scope is the area of code where a variable can be accessed { }
+
+0 , null, undefined, NaN, ""(empty string) are all falsy values in javascript
+Nan stands for not a number invalid maths is example for NaN e.g  console.log('text' / 5); will give NaN
+undefined is a value that is not defined   e.g let variable1; console.log(variable1); will give undefined
+/*imp*/you cant use const varirable1; it will give an error else we have to write const variable1 = undefined;
+rest all are truthy values in javascript
+it can be used for example to check if there are any products in the cart or not
+
+shortcuts for writing if statements
+
+1) Ternary operator ?:
+2) Guard operator &&
+3) default operator ||
+
+1) Ternary operator ?:
+   true ? 'yes' : 'no'
+
+   here ? represents if and : represents else after ? is the value if the condition is true and after : is the value if the condition is false
+
+   shortcut for  
+   if (true) {
+       console.log('yes');
+   } else {
+       console.log('no');
+   }
+
+   /*imp*/ the advantage of using ternary operator is that we can store answer in a variable
+   for example
+   const result = true ? 'yes' : 'no';
+   console.log(result);
+
+2) Guard operator &&
+   true && 'yes'
+   false && 'yes'
+
+   here && represents if and the value after && is the value if the condition is true
+
+   shortcut for
+   if (true) {
+       console.log('yes');
+   }
+
+   /*imp*/ the advantage of using guard operator is that we can store answer in a variable
+   for example
+   const result = true && 'yes';
+   console.log(result);   
+
+   And operator follows short circuit evaluation that means if false && true and operation will stop at false and will not check for true that is if it gets false first it stops and dont check further since both should be true
+
+   that means the value on left side guards the value on right side
+
+   we can also save the value in a variable
+
+    const result = false && 'yes';
+    console.log(result);
+    output - false
+
+    const result = true && 'yes';
+    console.log(result);
+    output - yes
+
+    it will store the value on right side if the value on left side is true else it will store the value on left side
+
+    it is a shortcut for
+
+    let message;
+    if (condition) {
+        message = 'yes';
+    }else {
+        message = 'no';
+    } 
+
+3) Default operator ||
+
+  Or operator also follows short circuit evaluation that means if true || false or operation will stop at true and will not check for false.
+
+  and store the value on left side if the value on left side is true else it will store the value on right side
+
+for example
+
+const currency = 'EUR' || 'USD';
+console.log(currency);
+output - EUR
+because EUR was selected assuming so left is true so it stored EUR
+
+const currency = undefined || 'USD';
+console.log(currency);
+output - USD
+undefined was selected assuming so left is falsy value so it stored USD   
+
+it is a shortcut for
+
+let currency;
+if (!condition) { 
+    currency = 'USD';
+} else {
+    currency = 'EUR';
+}
+
+functions let us reuse code
+
+return; after a function will return the value undefined and ends the function
