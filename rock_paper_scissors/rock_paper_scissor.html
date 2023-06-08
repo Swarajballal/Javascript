@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+
+  <style>
+    body{
+      background-color: rgb(25, 25, 25);
+      color: #fff;
+      /* text-align: center; */
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bolder;
+    }
+
+    section{
+      margin: 40px 0px;
+    }
+
+    .container{
+      /* display: inline; */
+      justify-content: center;
+      align-items: center;
+      display: inline-flex;
+      border: 2px solid #fff;
+      width: 120px;
+      height: 120px;
+      margin-left: 10px;
+      border-radius: 60px;
+    }
+
+    button{
+      background-color: rgb(25, 25, 25);
+      border: none;
+      cursor: pointer;
+    }
+
+    .rock , .paper, .scissors{
+      height: min-content;
+    }
+
+    #res{
+      font-size: 25px;
+      margin: 30px 0px;
+    }
+
+    #choosen
+    {
+      margin-top: 30px;
+      margin-bottom: 50px;
+    }
+
+    .reset{
+      background-color: #fff;
+      padding: 10px;
+    }
+
+  </style>
+
+</head>
+<body>
+  <h1>Rock Paper Scissors</h1>
+  <section>
+    <div class="container">
+      <button class="rock" onclick="
+        const randomNumber = Math.random();
+        computerPick = '';
+        userPick = 'Rock';
+        if (randomNumber >= 0 && randomNumber < 1/3) {
+          console.log('Rock');
+          computerPick = 'Rock';
+        }else if (randomNumber >= 1/3 && randomNumber < 2/3) {
+          console.log('Paper');
+          computerPick = 'Paper';
+        }else {
+          console.log('Scissors');
+          computerPick = 'Scissors';
+        }
+        
+        if (userPick === computerPick) {
+          console.log('Draw');
+          document.querySelector('#res').innerHTML = 'Tie.';
+          ScoreCard();
+          ties++;
+          // alert(' Computer picked Rock you also picked Rock so Draw');
+        }else if (computerPick === 'Paper') {
+          console.log('Computer Wins');
+          document.querySelector('#res').innerHTML = 'You Lose.';
+          ScoreCard();
+          losses++;
+          // alert('Computer Wins Computer picked Paper');
+        } else {
+          console.log('User Wins Computer picked Scissors');
+          document.querySelector('#res').innerHTML = 'You Win.';
+          ScoreCard();
+          wins++;
+          // alert('User Wins');
+        }
+        
+        updateScoreCard();"></button>
+      </div>
+
+    <div class="container">
+      <button class="paper" onclick="
+        const randomNumber1 = Math.random();
+          computerPick = '';
+          userPick = 'Paper';
+        if (randomNumber1 >= 0 && randomNumber1 < 1/3) {
+          console.log('Rock');
+          computerPick = 'Rock';
+        }else if (randomNumber1 >= 1/3 && randomNumber1 < 2/3) {
+          console.log('Paper');
+          computerPick = 'Paper';
+        }else {
+          console.log('Scissors');
+          computerPick = 'Scissors';
+        }
+        
+        if (userPick === computerPick) {
+          console.log('Draw');
+          document.querySelector('#res').innerHTML = 'Tie.';
+          ScoreCard();
+          ties++;
+          // alert(' Computer picked Paper you also picked Paper so Draw');
+        }else if (computerPick === 'Scissors') {
+          console.log('Computer Wins');
+          document.querySelector('#res').innerHTML = 'You Lose.';
+          ScoreCard();
+          losses++;
+          // alert('Computer Wins Computer picked Scissors');
+        } else {
+          console.log('User Wins');
+          document.querySelector('#res').innerHTML = 'You Win.';
+          ScoreCard();
+          wins++;
+          // alert('User Wins Computer picked Rock');
+        }
+        updateScoreCard();"></button>
+    </div>
+
+    <div class="container">
+      <button class="scissors" onclick="
+        const randomNumber2 = Math.random();
+          computerPick = '';
+          userPick = 'Scissors';
+        if (randomNumber2 >= 0 && randomNumber2 < 1/3) {
+          console.log('Rock');
+          computerPick = 'Rock';
+        }else if (randomNumber2 >= 1/3 && randomNumber2 < 2/3) {
+          console.log('Paper');
+          computerPick = 'Paper';
+        }else {
+          console.log('Scissors');
+          computerPick = 'Scissors';
+        }
+
+        if (userPick === computerPick) {
+          console.log('Draw');
+          document.querySelector('#res').innerHTML = 'Tie.';
+          ScoreCard();
+          ties++;
+          // alert(' Computer picked Scissors you also picked Scissors so Draw');
+        }else if (computerPick === 'Rock') {
+          console.log('Computer Wins');
+          document.querySelector('#res').innerHTML = 'You Lose.';
+          ScoreCard();
+          losses++;
+          // alert('Computer Wins');
+        } else {
+          console.log('User Wins');
+          document.querySelector('#res').innerHTML = 'You Win.';
+          ScoreCard();
+          wins++;
+          // alert('User Wins');
+        }
+        updateScoreCard();"></button>
+    </div>
+  </section>    
+
+      <p id="res"></p>
+      <p id="choosen"></p>
+      <p id="score_card">Wins: 0, Losses: 0, Ties: 0</p>
+
+      <button class="reset" onclick="resetScore();">Reset Score</button>
+
+  <script>
+
+    document.querySelector('.rock').innerHTML = '<img src="rock-emoji.png" alt="rock" width="70px" height="70px">';
+
+    document.querySelector('.paper').innerHTML = '<img src="paper-emoji.png" alt="paper" width="70px" height="70px">';
+
+    document.querySelector('.scissors').innerHTML = '<img src="scissors-emoji.png" alt="scissors" width="70px" height="70px">';
+
+    let computerPick = '';
+    let userPick = '';
+    let wins = 0;
+    let losses = 0;
+    let ties = 0;
+    let userPickImg = '';
+    let computerPickImg = '';
+
+    function updateScoreCard() {
+      document.querySelector('#score_card').innerHTML = `Wins: ${wins}, Losses: ${losses}, Ties: ${ties}`;
+    }
+
+    function ScoreCard() {
+
+      if (userPick === 'Rock') {
+        userPickImg = '<img src="rock-emoji.png" alt="rock" width="50px" height="50px">';
+      }else if (userPick === 'Paper') {
+        userPickImg = '<img src="paper-emoji.png" alt="paper" width="50px" height="50px">';}else {
+        userPickImg = '<img src="scissors-emoji.png" alt="scissors" width="50px" height="50px">';}
+
+      if (computerPick === 'Rock') {
+        computerPickImg = '<img src="rock-emoji.png" alt="rock" width="50px" height="50px">';
+      }else if (computerPick === 'Paper') {
+        computerPickImg = '<img src="paper-emoji.png" alt="paper" width="50px" height="50px">';}else {
+        computerPickImg = '<img src="scissors-emoji.png" alt="scissors"width="50px" height="50px">';}  
+
+      document.querySelector('#choosen').innerHTML = `You ${userPickImg} ${computerPickImg} Computer`;
+    }
+
+    function resetScore() {
+      wins = 0;
+      losses = 0;
+      ties = 0;
+      updateScoreCard();
+    }
+
+  </script>
+</body>
+</html>
