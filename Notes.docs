@@ -279,3 +279,193 @@ if (!condition) {
 functions let us reuse code
 
 return; after a function will return the value undefined and ends the function
+
+An object groups multiple element together
+const product = {
+    name: 'socks',
+    price: 7.99
+};
+
+here name and price are properties of product object
+console.log(product);
+output - {name: "socks", price: 7.99}
+console.log(product.name);
+output - socks
+console.log(product.price);
+output - 7.99
+
+product.name = 'shoes';
+console.log(product.name);
+output - shoes
+we can change the value of properties of an object
+
+there are property value pair
+
+/*imp*/when we access a property with no value it gives undefined
+example property.notexist gives undefined
+
+we can also add new properties to an object
+product.size = 'large';
+console.log(product);   
+output - {name: "shoes", price: 7.99, size: "large"}
+
+we can also delete properties from an object
+delete product.size;
+console.log(product);
+output - {name: "shoes", price: 7.99}
+
+
+why we use objects
+
+objects make things more organized
+objects also allows access multiple properties at once
+
+const product2 = {
+    name: 'shirt',
+    ['delivery-time']: '5-7 days',  or we can write 'delivery-time': '5-7 days', without brackets
+};
+
+console.log(product2);
+/*imp*/
+another way to access values of an object is
+console.log(product2['name']);
+
+bracket notation is used when dot notation is not possible
+for example
+console.log(product2.delivery-time);
+output - error
+because javascript thinks - as minus sign so it gives error and does maths
+so here we use bracket notation
+console.log(product2['delivery-time']);
+
+in javascript bracket notation we can use anything that leads to a value
+product2[variable1]  // variable
+product2['delivery' + 'time']  // calculations
+
+
+we use dot notation by default but can use bracket notation when dot notation is not possible like above example
+
+inside an object we can write another object this is called a nested object
+const product3 = {
+    name: 'socks',
+    price: 7.99,
+    details: {
+        color: 'blue',
+        size: 'large'
+    }
+};
+
+console.log(product3.details.color);
+/*imp*/ 
+we can also put function inside an object
+
+const product4 = {
+    name: 'socks',
+    price: 7.99,
+    details: {
+        color: 'blue',
+        size: 'large'
+    },
+    calcPrice: function() {
+        console.log(7.99); 
+    }
+};
+
+product4.calcPrice();   // calling the function
+
+/*imp*/
+
+console.log here console is an object and log is a method(function) of console object
+
+/*imp*/
+built in objects in javascript
+console and Math are built in objects in javascript
+two more are JSON and localStorage
+
+JSON built in objects in javascript
+JSON stands for JavaScript Object Notation'
+its basically a syntax it is like javascript but less features such as functions
+
+example javascript object
+{
+    name: 'socks',
+    price: 7.99
+    'delivery-time': '5-7 days'
+    details: {
+        color: 'blue',
+        size: 'large'
+    }
+    calcPrice: function() {
+        console.log(7.99); 
+    }
+}
+
+JSON object
+{
+    "name": "socks",
+    "price": 7.99
+    "delivery-time": "5-7 days",
+    "details": {
+        "color": "blue",
+        "size": "large"
+    }
+}
+
+/*vimp*/
+all properties should be in double quotes it does not support single quotes and no functions are allowed
+a javascript object only understanded by javascript but a JSON object can be understood by any programming language it is a universal format
+
+
+/*vimp*/
+Built in JSON object in javascript
+
+JSON.stringify()  // converts javascript object to JSON object
+
+console.log(JSON.stringify(product4));
+output - {"name":"socks","price":7.99,"details":{"color":"blue","size":"large"}}
+
+/*vimp*/
+we can see function is not converted to JSON object and not included the output is a string format and not an object
+
+/*vimp*/
+convert JSON object to javascript object
+JSON.parse()  // converts JSON object to javascript object
+for example
+const data = JSON.parse('{"name":"socks","price":7.99,"details":{"color":"blue","size":"large"}}');
+console.log(data);
+output - {name: "socks", price: 7.99, details: {…}}
+
+
+/*vimp*/
+localStorage built in object in javascript
+localStorage helps save us value permanently in the browser
+localStorage.setItem('name', 'john');  // setItem is a method of localStorage object
+// here name is the key and john is the value
+/*vimp*/
+here we need a key and a value remember localStorage only stores strings
+to get the value
+localStorage.getItem('name');  // getItem is a method of localStorage object
+we have to convert the value or product4.price to string to store it in localStorage so we use JSON.stringify(product4)
+output - "{"name":"socks","price":7.99,"details":{"color":"blue","size":"large"}}"
+so to use this we need to convert the string back to object if we need to make it dynamic 
+so we use JSON.parse(localStorage.getItem('product4'));
+output - {name: "socks", price: 7.99, details: {…}}
+
+/*vimp*/
+to remove a value from localStorage
+localStorage.removeItem('name');  // removeItem is a method of localStorage object
+but if we remove a value and it is being used as a value for a vairable in the code then it will throw an error and will give value null so we need to check if the value is null or not
+
+if (product4 === null) {
+    product4 = {
+        name: 'socks',
+        price: 7.99,
+        details: {
+            color: 'blue',
+            size: 'large'
+        }
+    };
+}
+
+so this will be default value if the value is null
+!something means not null  /*vimp*/
